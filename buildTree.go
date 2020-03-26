@@ -44,7 +44,7 @@ func indexOf(val int, nums []int) int {
 }
 */
 
-//由中序和后序回复
+//由中序和后序回复 
 func buildTree(inorder []int, postorder []int * TreeNode) *TreeNode {
 	n := len(postorder)
 	if n == 0 {
