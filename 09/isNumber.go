@@ -4,6 +4,7 @@ import (
 	"regexp"
 	"strings"
 )
+
 //正则
 func isNumber(s string) bool {
 	s = strings.TrimSpace(s)
@@ -33,7 +34,8 @@ func isNumber2(s string) bool {
 
 func isUInt(s *string) bool {
 	i := 0
-	for ; i < len(*s) && (*s)[i] >= '0' && (*s)[i] <= '9'; i++ {}
+	for ; i < len(*s) && (*s)[i] >= '0' && (*s)[i] <= '9'; i++ {
+	}
 	*s = (*s)[i:]
 	return i > 0
 }

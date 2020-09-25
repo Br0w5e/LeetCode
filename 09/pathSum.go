@@ -1,7 +1,8 @@
 //返回二叉树中所有满足指定和的路径
 package main
+
 //寻找路径和，保证跟节点到叶子节点
-func pathSum(root *TreeNode, sum int)  [][]int{
+func pathSum(root *TreeNode, sum int) [][]int {
 	if root == nil {
 		return nil
 	}
@@ -10,19 +11,19 @@ func pathSum(root *TreeNode, sum int)  [][]int{
 	return ret
 }
 
-func dfs(root *TreeNode, sum int, arr []int, ret *[][]int){
-	if root == nil{
+func dfs(root *TreeNode, sum int, arr []int, ret *[][]int) {
+	if root == nil {
 		return
 	}
 	arr = append(arr, root.Val)
 
-	if root.Val == sum && root.Left == nil && root.Right == nil{
+	if root.Val == sum && root.Left == nil && root.Right == nil {
 		tmp := make([]int, len(arr))
 		copy(tmp, arr)
 		*ret = append(*ret, tmp)
 	}
-    dfs(root.Left,sum - root.Val,arr,ret)
-	dfs(root.Right,sum - root.Val,arr,ret)
+	dfs(root.Left, sum-root.Val, arr, ret)
+	dfs(root.Right, sum-root.Val, arr, ret)
 	arr = arr[:len(arr)-1]
 }
 
@@ -43,8 +44,8 @@ func solve(root *TreeNode, sum int, ret *int) {
 	solve(root.Right, sum, ret)
 }
 
-func dfs(root *TreeNode, sum int, ret *int){
-	if root == nil{
+func dfs(root *TreeNode, sum int, ret *int) {
+	if root == nil {
 		return
 	}
 	if root.Val == sum {

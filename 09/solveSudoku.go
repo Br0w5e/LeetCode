@@ -1,8 +1,9 @@
 package main
+
 //37. 解数独
 
 //backtrace
-func solveSudoku(board [][]byte)  {
+func solveSudoku(board [][]byte) {
 	//去除非法数独
 	if board == nil || len(board) != 9 {
 		return
@@ -16,7 +17,7 @@ func solveSudoku(board [][]byte)  {
 	backTrack(board, 0, 0)
 }
 
-func backTrack(board [][]byte, row int, col int) bool{
+func backTrack(board [][]byte, row int, col int) bool {
 	if col == 9 {
 		return backTrack(board, row+1, 0)
 	}
@@ -59,4 +60,3 @@ func isValidNumber(board [][]byte, row int, col int, number byte) bool {
 	}
 	return true
 }
-

@@ -1,6 +1,8 @@
 package main
+
 //51 N皇后
 var solutions [][]string
+
 func solveNQueens(n int) [][]string {
 	solutions = [][]string{}
 	queens := make([]int, n)
@@ -24,12 +26,12 @@ func backtrack(queens []int, n, row int, columns, diagonals1, diagonals2 map[int
 		if columns[i] {
 			continue
 		}
-		diagonal1 := row-i
+		diagonal1 := row - i
 		if diagonals1[diagonal1] {
 			continue
 		}
 
-		diagonal2 := row+i
+		diagonal2 := row + i
 		if diagonals2[diagonal2] {
 			continue
 		}
@@ -37,7 +39,7 @@ func backtrack(queens []int, n, row int, columns, diagonals1, diagonals2 map[int
 		queens[row] = i
 		columns[i] = true
 		diagonals1[diagonal1], diagonals2[diagonal2] = true, true
-		backtrack(queens, n, row + 1, columns, diagonals1, diagonals2)
+		backtrack(queens, n, row+1, columns, diagonals1, diagonals2)
 		queens[row] = -1
 		delete(columns, i)
 		delete(diagonals1, diagonal1)

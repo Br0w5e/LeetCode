@@ -23,7 +23,6 @@ func inorderDfs(res *[]int, root *TreeNode) {
 	}
 }
 
-
 //栈应用
 
 func inorderTraversal2(root *TreeNode) []int {
@@ -34,7 +33,7 @@ func inorderTraversal2(root *TreeNode) []int {
 	stack := make([]*TreeNode, 0)
 	curNode := root
 
-	for len(stack) > 0 || curNode != nil{
+	for len(stack) > 0 || curNode != nil {
 		for curNode != nil {
 			stack = append(stack, curNode)
 			curNode = curNode.Left

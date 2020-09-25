@@ -11,8 +11,8 @@ func isIsomorphic(s string, t string) bool {
 			return false
 		} else {
 			if mS[c1] == 0 { // 当字母第一次出现时，将字符映射为所在位置加1
-				mS[c1] = i+1
-				mT[c2] = i+1
+				mS[c1] = i + 1
+				mT[c2] = i + 1
 			}
 		}
 	}
@@ -45,7 +45,7 @@ func isIsomorphic2(s string, t string) bool {
 	}
 	return true
 }
-func main()  {
+func main() {
 	s := "egga"
 	t := "adda"
 	fmt.Println(isIsomorphic2(s, t))

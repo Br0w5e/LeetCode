@@ -6,7 +6,8 @@ import "strconv"
 
 //dfs
 var paths []string
-func binaryTreePaths(root *TreeNode)  []string {
+
+func binaryTreePaths(root *TreeNode) []string {
 	paths = []string{}
 	constructPaths(root, "")
 	return paths
@@ -25,7 +26,6 @@ func constructPaths(root *TreeNode, path string) {
 		}
 	}
 }
-
 
 //bfs
 func binaryTreePaths2(root *TreeNode) []string {
@@ -46,11 +46,11 @@ func binaryTreePaths2(root *TreeNode) []string {
 		}
 		if node.Left != nil {
 			nodeQueue = append(nodeQueue, node.Left)
-			pathQueue = append(pathQueue, path + "->" + strconv.Itoa(node.Left.Val))
+			pathQueue = append(pathQueue, path+"->"+strconv.Itoa(node.Left.Val))
 		}
 		if node.Right != nil {
 			nodeQueue = append(nodeQueue, node.Right)
-			pathQueue = append(pathQueue, path + "->" + strconv.Itoa(node.Right.Val))
+			pathQueue = append(pathQueue, path+"->"+strconv.Itoa(node.Right.Val))
 		}
 	}
 	return paths

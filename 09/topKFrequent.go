@@ -15,7 +15,7 @@ func topKFrequent(nums []int, k int) []int {
 	}
 	sort.Ints(tmp)
 	res := make([]int, 0)
-	for i := len(tmp)-1; i >= len(tmp)-k; i-- {
+	for i := len(tmp) - 1; i >= len(tmp)-k; i-- {
 		for key, v := range m {
 			if v == tmp[i] {
 				res = append(res, key)

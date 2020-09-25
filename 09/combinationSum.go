@@ -22,7 +22,7 @@ func dfs(candidates []int, nums []int, target int, left int, res *[][]int) {
 	for i := left; i < len(candidates); i++ {
 		//剪枝
 		if target < candidates[i] {
-			return 
+			return
 		}
 		dfs(candidates, append(nums, candidates[i]), target-candidates[i], i, res)
 	}
@@ -30,29 +30,30 @@ func dfs(candidates []int, nums []int, target int, left int, res *[][]int) {
 
 // 40 数组组合：找出候选数组中所有可以组成目标数组的数字次数仅出现一次
 func combinationSum2(candidates []int, target int) [][]int {
-    sort.Ints(candidates) //快排
-    res := [][]int{}
-    dfs(candidates, nil, target, 0, &res)
-    return res
+	sort.Ints(candidates) //快排
+	res := [][]int{}
+	dfs(candidates, nil, target, 0, &res)
+	return res
 }
 
 func dfs(candidates []int, nums []int, target int, left int, res *[][]int) {
-    if target == 0 { //结算
-        tmp := make([]int, len(nums))
-        copy(tmp, nums)
-        *res = append(*res, tmp)
-        return 
-    }
-    for i := left; i < len(candidates); i++{
-        if i != left && candidates[i] == candidates[i-1] {  //同层节点，数值相同 剪枝
-            continue
-        }
-        if target < candidates[i] {//剪枝
-            return
-        }
-        dfs(candidates, append(nums, candidates[i]), target-candidates[i], i+1, res)
-    }
+	if target == 0 { //结算
+		tmp := make([]int, len(nums))
+		copy(tmp, nums)
+		*res = append(*res, tmp)
+		return
+	}
+	for i := left; i < len(candidates); i++ {
+		if i != left && candidates[i] == candidates[i-1] { //同层节点，数值相同 剪枝
+			continue
+		}
+		if target < candidates[i] { //剪枝
+			return
+		}
+		dfs(candidates, append(nums, candidates[i]), target-candidates[i], i+1, res)
+	}
 }
+
 // 216 组合总和 III 找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中不存在重复的数字。
 func combinationSum3(k int, n int) [][]int {
 	candidates := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -62,20 +63,20 @@ func combinationSum3(k int, n int) [][]int {
 }
 
 func dfs(candidates []int, nums []int, n int, left int, res *[][]int, k int) {
-	if n == 0 && len(nums) == k{ //结算
+	if n == 0 && len(nums) == k { //结算
 		tmp := make([]int, len(nums))
 		copy(tmp, nums)
 		*res = append(*res, tmp)
 		return
 	}
-	if n == 0 || len(nums) > k{ //虽然满足但是长度不想等
+	if n == 0 || len(nums) > k { //虽然满足但是长度不想等
 		return
 	}
-	for i := left; i < len(candidates); i++{
-		if i != left && candidates[i] == candidates[i-1] {  //同层节点，数值相同 剪枝
+	for i := left; i < len(candidates); i++ {
+		if i != left && candidates[i] == candidates[i-1] { //同层节点，数值相同 剪枝
 			continue
 		}
-		if n < candidates[i] {//剪枝
+		if n < candidates[i] { //剪枝
 			return
 		}
 		dfs(candidates, append(nums, candidates[i]), n-candidates[i], i+1, res, k)
@@ -104,6 +105,7 @@ func dfs(nums []int, target int, res *int) {
 		dfs(nums, target-nums[i], res)
 	}
 }
+
 //dp解决4问题
 func combinationSum42(nums []int, target int) int {
 	if len(nums) == 0 {

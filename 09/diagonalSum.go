@@ -15,13 +15,13 @@ func diagonalSum(mat [][]int) int {
 	return res
 }
 
-func diagonalSum2(mat [][]int) int{
+func diagonalSum2(mat [][]int) int {
 	res, n := 0, len(mat)
 	for i := 0; i < n; i++ {
 		res += mat[i][i]
 		res += mat[i][n-1-i]
 	}
-	if n % 2 == 1 {
+	if n%2 == 1 {
 		res -= mat[n/2][n/2]
 	}
 	return res

@@ -3,10 +3,11 @@ package main
 import "sort"
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
-func insertionSortList(head *ListNode) *ListNode  {
+
+func insertionSortList(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
@@ -29,21 +30,22 @@ func insertionSortList(head *ListNode) *ListNode  {
 	}
 	return h.Next
 }
+
 //野路子
 func insertionSortList2(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
-	nums := make([]int,0)
+	nums := make([]int, 0)
 	for head != nil {
-		nums = append(nums,head.Val)
+		nums = append(nums, head.Val)
 		head = head.Next
 	}
 	sort.Ints(nums)
 	rst := &ListNode{}
 	tmp := rst
-	for _,v := range nums {
-		tmp.Next = &ListNode{Val:v}
+	for _, v := range nums {
+		tmp.Next = &ListNode{Val: v}
 		tmp = tmp.Next
 	}
 	return rst.Next

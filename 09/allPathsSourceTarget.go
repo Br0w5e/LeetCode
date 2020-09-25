@@ -1,4 +1,5 @@
 package main
+
 //797  0 到 n-1 的路径并输出
 var res [][]int
 
@@ -9,7 +10,7 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 	return res
 }
 
-func dfs(graph [][]int, path []int)  {
+func dfs(graph [][]int, path []int) {
 	tmp := make([]int, len(path))
 	copy(tmp, path)
 	//最后一个节点是不是终止节点

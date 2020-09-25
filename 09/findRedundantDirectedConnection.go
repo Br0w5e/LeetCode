@@ -6,7 +6,7 @@ package main
 //并查集
 func findRedundantDirectedConnection(edges [][]int) []int {
 	numNodes := len(edges)
-	uf := newUnionFind(numNodes+1)
+	uf := newUnionFind(numNodes + 1)
 	parent := make([]int, numNodes+1) //parent[i] 表示i的父节点
 	for i, _ := range parent {
 		parent[i] = i
@@ -61,7 +61,6 @@ func newUnionFind(n int) unionFind {
 	return unionFind{ancestor}
 }
 
-
 //出入度，判断
 var pre []int
 
@@ -115,6 +114,3 @@ func findRedundantDirectedConnection2(edges [][]int) []int {
 		return []int{tmp[1], e}
 	}
 }
-
-
-

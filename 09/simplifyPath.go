@@ -12,7 +12,6 @@ func simplifyPath(path string) string {
 	return filepath.Clean(path)
 }
 
-
 //常规方法
 //栈操作
 func simplifyPath2(path string) string {
@@ -31,10 +30,10 @@ func simplifyPath2(path string) string {
 			stack = append(stack, buf[i])
 		}
 	}
-	return "/"+strings.Join(stack, "/")
+	return "/" + strings.Join(stack, "/")
 }
 
-func main()  {
+func main() {
 	path := "/a//b////c/d//././/.."
 	fmt.Println(simplifyPath2(path))
 }
