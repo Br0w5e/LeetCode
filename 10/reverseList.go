@@ -5,7 +5,7 @@
  *     Next *ListNode
  * }
  */
-//反转链表
+//206. 反转链表
 package main
 
 func reverseList(head *ListNode) *ListNode {
@@ -22,3 +22,4 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return pre
 }
+
